@@ -1,0 +1,144 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage_Home.master.cs" Inherits="MasterPage_Home" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <script src="Scripts/jquery-2.2.3.min.js"></script>
+    <title>Quanlyvattu</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Style/Main_css.css" rel="stylesheet" />
+
+  
+
+</head>
+<body>
+     <div class=" wrapper" >
+  
+       
+            <div id="banner">
+             <img src="../../Image/banner.jpg" width="1333" />
+
+            </div>       
+              <div id="navigation">
+                   <%-- taskbar--%>
+                       <table class="tbl_nav"  >
+                           <tr>
+                               <td >
+                                     <a href="#" id="click_id" >
+                                         <div>Hệ thống
+                                             <span class="nav_drop"> &nbsp;                                            
+                                             </span>
+                                         </div>  
+                                              
+                                     </a>
+                                   
+                                <%-- dropGroup--%>
+                                  <div class=" menuBarGroup">
+                                    <a class="contextItem" href="#"><div class="title">User</div></a>
+                                    <a class="contextItem" href="#"><div class="title">Your Profile</div></a>
+                                    <a  class="contextItem" href="#"><div class="title">Logout</div></a>
+                                </div> 
+                                 <%-- Enddrop--%>
+                               </td>                             
+                               <td class="td_seperate">
+                                    <div></div>                           
+                               </td>
+                               
+                                 <td id="td1">
+                                     <a href="#"  id="click_id1">
+                                         <div>Nghiệp vụ
+                                             <span class="nav_drop"> &nbsp;                                              
+                                             </span>
+                                         </div> 
+                                     </a>
+                                      <%-- dropGroup--%>
+                                  <div class=" menuBarGroup">
+                                    <a class="contextItem" href="#"><div class="title">Phiếu nhập</div></a>
+                                    <a class="contextItem" href="#"><div class="title">Phiếu xuất</div></a>
+                                    <a  class="contextItem" href="#"><div class="title">Tồn đầu</div></a>
+                                    <%-- Enddrop--%>
+                                </div> 
+                               </td>
+
+                               <td class="td_seperate">
+                                    <div></div>                           
+                               </td>
+
+                                   <td>
+                                       <a href="#">
+                                         <div>Danh mục
+                                             <span  class="nav_drop">&nbsp;                                            
+                                             </span>
+                                         </div> 
+                                     </a>
+                                         <%-- dropGroup--%>
+                                     <div class=" menuBarGroup">
+                                        <a class="contextItem" href="#"><div class="title">Danh mục tài khoản</div></a>
+                                        <a class="contextItem" href="#"><div class="title">Danh mục bộ phận</div></a>       
+                                          <a class="contextItem" href="http://localhost:2181/Content/Danhmuc/Danhmuckho.aspx"><div class="title">Danh mục kho</div></a>
+                                        <a class="contextItem" href="#"><div class="title">Danh mục khách hàng</div></a>  
+                                            <a class="contextItem" href="#"><div class="title">Danh mục hàng hóa</div></a>                              
+                                        </div>
+                                        <%-- Enddrop--%>
+                               </td>
+                                <td class="td_seperate">
+                                    <div></div>
+                               </td>
+
+                                   <td>
+                                     <a href="#">
+                                            <div>Báo cáo
+                                             <span  class="nav_drop">&nbsp;                                                  
+                                             </span>
+                                         </div>
+                                     </a>
+                                       <%-- dropGroup--%>
+                                      <div class=" menuBarGroup">
+                                        <a class="contextItem" href="#"><div class="title">Báo cáo nhập xuất tồn</div></a>
+                                        <a class="contextItem" href="#"><div class="title">Sổ chi tiết vật tư</div></a>                            
+                                        </div>
+                                    <%-- Enddrop--%>
+                                   </td>   
+                                                          
+                                <td class="td_seperate">
+                                    <div></div>
+                               </td>
+
+                                   <td>
+                                       <a href="#">
+                                         <div>Giới thiệu                                       
+                                         </div> 
+                                     </a>
+                               </td>
+                           </tr>
+                       </table>   
+                  
+                    <%-- Endtaskbar--%>             
+              </div>
+          
+         <div>
+             
+               
+         </div>
+            <form id="form_content" runat="server">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+               </asp:ContentPlaceHolder>
+             </form>          
+               <div id="footer" style="font-size: 15px">
+                   <div style="padding-top: 1px" class="footer_copyright"> <p> CopyRight &copy; 2016 KieuHanh<p></div>
+                   <div class="footer_mail_icon"><img src="../../Image/mail_fix.gif" /> </div> 
+                   <div class="footer_mail">KieuHanhNguyenVu.com</div>
+                   <div class="footer_phone_icon"><img src="../../Image/phong_fix.gif" /> </div>
+                   <div  class="footer_phone" >01676148868</div> 
+               </div>
+     
+        </div>
+     
+           
+    
+   
+           
+</body>
+</html>
