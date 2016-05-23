@@ -43,7 +43,7 @@ table tr td a :hover  {
 
 
 table tr td:hover .menuBarGroup {
-    display: block; 
+    display:none; 
 }
 
 .td_seperate div {
@@ -109,10 +109,12 @@ background: white none repeat scroll 0% 0%;
 width: 332px;
 }
 #block_insertkho {
+   z-index:10000;
     position: absolute;
-    left: 450px;
+    left: 630px;
     top: 147px;
     display: none;
+    width: 567px;
 }
 .danhmuckho_tittle {
     width: 100%;
@@ -120,23 +122,24 @@ width: 332px;
     padding: 3px;
 }
 .title_themkho {
-      width: 450px;
+      width: 500px;
     height: 19px;
     background: #FFFFE0;
 }
 .content_themkho {
       
-    width: 450px;
+   width: 500px;
     height: 50px;
     padding-top: 16px;
     background-color: #ffffff;
 }
-.content_themkho_item {
+.content_themkho_item1 {
     float: left;
     margin-left: 7px;
 }
+
 .button_themkho {
-     width: 450px;
+      width: 500px;
        float: left;
     background-color: #ffffff;
     
@@ -145,6 +148,59 @@ width: 332px;
     float: left;
 
 }
+/*Thêm bộ phân*/
+.content_thembophan {
+       width: 500px;
+    height: 120px;
+    padding-top: 16px;
+    background-color: #ffffff;
+}
+.content_thembophan_item1 {
+    float: left;
+    margin-left: 7px;
+}
+.content_thembophan_item2{
+
+     float: left;
+    margin-top: 10px;
+}
+/*Thêm khách hàng*/
+#block_insertkhachhang{
+     z-index:10000;
+    position: absolute;
+    left: 630px;
+    top: 147px;
+    display: none;
+    width: 594px;
+
+}
+.content_themkhachhang{
+     width: 594px;
+    height: 120px;
+    padding-top: 30px;
+    background-color: #ffffff;
+}
+.content_themkhachhang_item1{
+     float: left;
+    margin-left: 7px;
+   
+
+}
+.content_themkhachhang_item2{
+
+     float: left;
+    margin-top: 10px;
+  
+   
+}
+.content_themkhachhang_item3{
+    float: left;
+    margin-left: 7px;
+
+}
+
+    
+
 
 #cancel_btn {
         padding: 1px 6px;

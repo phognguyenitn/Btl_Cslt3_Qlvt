@@ -36,12 +36,11 @@ public partial class Content_Danhmuc_Danhmuckho : System.Web.UI.Page
         {
             conn.Open();           
             string strSelect = "select * from tb_Ma_Kho";
-            SqlDataAdapter da  = new SqlDataAdapter(strSelect,conn);
-            DataSet ds = new DataSet();
+            SqlDataAdapter da  = new SqlDataAdapter(strSelect,conn);           
             DataTable dt = new DataTable();
-            da.Fill(ds);
+            da.Fill(dt);
             conn.Close();
-            dgvDmk.DataSource = ds.Tables[0];
+            dgvDmk.DataSource = dt;
             dgvDmk.DataBind(); 
             
         }

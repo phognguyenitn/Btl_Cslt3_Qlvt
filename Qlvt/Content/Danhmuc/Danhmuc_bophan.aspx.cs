@@ -46,27 +46,21 @@ public partial class Content_Danhmuc_Danhmuc_bophan : System.Web.UI.Page
 
    
 
-    //protected void grvdmbf_PageIndexChanging(object sender, GridViewPageEventArgs e)
-    //{
-    //    grvdmbf.PageIndex = e.NewPageIndex;
-    //    FillGrid();
-    //}
-    protected void grvdmbf_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void txtReceive_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void hid_ValueChanged(object sender, EventArgs e)
-    {
-
-    }
+   
     protected void grvdmbf_RowEditing(object sender, GridViewEditEventArgs e)
     {
         grvdmbf.EditIndex = e.NewEditIndex;
         FillGrid();
+    }
+   
+    protected void grvdmbf_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            e.Row.Attributes["onmouseover"] = "this.style.backgroundColor='pink';";
+            e.Row.Attributes["onmouseout"] = "this.style.backgroundColor='white';";
+            e.Row.ToolTip = "Click last column for selecting this row.";
+        }
     }
     protected void grvdmbf_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
@@ -85,12 +79,14 @@ public partial class Content_Danhmuc_Danhmuc_bophan : System.Web.UI.Page
         grvdmbf.EditIndex = -1;
         FillGrid();
     }
+
     protected void grvdmbf_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
         Label lblMa = (Label)grvdmbf.Rows[e.RowIndex].FindControl("lblMabf");
         TextBox tenbf = (TextBox)grvdmbf.Rows[e.RowIndex].FindControl("txtUpdate_tenbp");
+        TextBox diachi = (TextBox)grvdmbf.Rows[e.RowIndex].FindControl("txtDiaChi");
         conn.Open();
-        string strUpdate = "Update tb_Bophan SET Ten_Bophan = N'" + tenbf.Text + "' where Ma_Bophan = '" + lblMa.Text + "'";
+        string strUpdate = "update tb_Bophan set Ten_Bophan=N' "+tenbf.Text+"' , Dia_chi=N' "+diachi.Text+"' where Ma_Bophan = '"+lblMa.Text+"'";
         SqlCommand cmd = new SqlCommand(strUpdate, conn);
         cmd.CommandType = CommandType.Text;
         cmd.ExecuteNonQuery();
@@ -98,9 +94,42 @@ public partial class Content_Danhmuc_Danhmuc_bophan : System.Web.UI.Page
         grvdmbf.EditIndex = -1;
         FillGrid();
     }
-    protected void txtTenbf(object sender, EventArgs e)
+    
+
+    protected void grvdmbf_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        grvdmbf.PageIndex = e.NewPageIndex;
+        FillGrid();
+    }
+
+    protected void BtnSave_Click(object sender, EventArgs e)
+    {
+        conn.Open();
+        string strSelect = "select * from tb_Bophan where Ma_Bophan='"+txtMa_Bophan_Insert.Text+"'";
+        SqlDataAdapter da = new SqlDataAdapter(strSelect, conn);
+        DataTable dt=new DataTable();
+        da.Fill(dt);
+        if (dt.Rows.Count == 0)
+        {
+            string strSave = "insert into  tb_Bophan values('" + txtMa_Bophan_Insert.Text + "','" + txtTen_Bophan_Insert.Text + "','" + txtDia_chi_Insert.Text + "')";
+            SqlCommand cmd = new SqlCommand(strSave, conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            grvdmbf.EditIndex = -1;
+            FillGrid();
+        }
+        else
+            lblError.Text = "Đã tồn tại ID";
+
+
+
+
+       
+    }
+
+    protected void grvdmbf_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }
-
 }
