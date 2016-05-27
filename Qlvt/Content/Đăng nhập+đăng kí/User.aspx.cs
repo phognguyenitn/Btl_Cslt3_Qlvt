@@ -14,7 +14,7 @@ public partial class Content_Đăng_nhập_đăng_kí_User : System.Web.UI.Page
     SqlConnection conn = new SqlConnection("Data Source=(local);Initial Catalog=VATTU_DB;Integrated Security=True");
     protected void Page_Load(object sender, EventArgs e)
     {
-        SqlConnection conn = new SqlConnection("Data Source=(local);Initial Catalog=VATTU_DB;Integrated Security=True");
+       
         try
         {
             if (!IsPostBack)
