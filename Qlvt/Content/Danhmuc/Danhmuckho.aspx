@@ -38,7 +38,6 @@
               <div style="font-size: 12px;">Cập nhập, sửa, xóa danh mục kho</div>
         </div>   
 <%--Content--%>      
-    Them
     <div id="danhmuckho_content">             
          <div id="open_kho" style="cursor: pointer"  >                      
              <img src="../../Image/create_icon.gif" />            
@@ -116,5 +115,6 @@
         </div>
  
     </div>
+    <asp:Repeater runat="server"></asp:Repeater>
 </asp:Content>
 
