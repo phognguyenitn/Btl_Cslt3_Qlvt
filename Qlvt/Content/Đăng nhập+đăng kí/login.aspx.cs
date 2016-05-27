@@ -51,7 +51,7 @@ public partial class Content_Dangnhap_login : System.Web.UI.Page
         DataTable myTable = new DataTable();
 
         //Mở kết nối
-        connStr = "Data Source=ANDONGNHI;Initial Catalog=VATTU_DB;Integrated Security=True";
+        connStr = "Data Source=(local);Initial Catalog=VATTU_DB;Integrated Security=True";
         myConnection = new SqlConnection(connStr);
         myConnection.Open();
 
