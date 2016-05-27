@@ -10,10 +10,8 @@
      width: 1333px;
 }
 /*nav*/
-#navigation {
-   
-     background-color: #ffffff;
-	 
+#navigation {   
+     background-color: #ffffff;	 
 }
 
 td {
@@ -43,7 +41,7 @@ table tr td a :hover  {
 
 
 table tr td:hover .menuBarGroup {
-    display:none; 
+    display: block; 
 }
 
 .td_seperate div {
@@ -78,7 +76,6 @@ table tr td:hover .menuBarGroup {
     background-position: 3px center;
     background-color: white;
 }
-
 
 
 /*content*/
@@ -194,6 +191,35 @@ width: 332px;
    
 }
 .content_themkhachhang_item3{
+    float: left;
+    margin-left: 7px;
+
+}
+/*Thêm tồn đầu kì*/
+#block_inserttondauki{
+     z-index:10000;
+    position: absolute;
+    left: 630px;
+    top: 147px;
+    display: block;
+    width: 625px;
+    height:300px;
+  
+
+}
+.content_themtondauki{
+     width: 660px;
+    height: 110px;
+    padding-top: 30px;
+    background-color: #ffffff;
+}
+.content_themtondauki_item1{
+     float: left;
+    margin-left: 7px;
+   
+    margin-top: 5px;
+}
+.content_themtondauki_item3{
     float: left;
     margin-left: 7px;
 

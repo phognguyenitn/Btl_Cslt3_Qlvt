@@ -53,10 +53,10 @@
                 </div>
             </div>
             <div class="content_themkho">
-                <div class="content_themkho_item" style="margin-top: 5px">Mã kho</div>
-                <div class="content_themkho_item"><asp:TextBox ClientIDMode="Static" runat="server" ID="txtId_Insert"></asp:TextBox></div>
-              <div class="content_themkho_item" style="margin-top: 5px">Tên kho</div>
-                 <div class="content_themkho_item"><asp:TextBox ClientIDMode="Static" runat="server" ID="txtName_insert"></asp:TextBox></div>
+                <div class="content_themkho_item1" style="margin-top: 5px">Mã kho</div>
+                <div class="content_themkho_item1"><asp:TextBox ClientIDMode="Static" runat="server" ID="txtId_Insert"></asp:TextBox></div>
+              <div class="content_themkho_item1" style="margin-top: 5px">Tên kho</div>
+                 <div class="content_themkho_item1"><asp:TextBox ClientIDMode="Static" runat="server" ID="txtName_insert"></asp:TextBox></div>
               
              
             </div>

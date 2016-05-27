@@ -85,7 +85,7 @@ public partial class Content_Danhmuc_Danhmuc_Khachhang : System.Web.UI.Page
         TextBox masothue = (TextBox)grvDmkh.Rows[e.RowIndex].FindControl("txtMaSoThue");
         TextBox tiemnang = (TextBox)grvDmkh.Rows[e.RowIndex].FindControl("txtTiemNang");
         conn.Open();
-        string strUpdate = "update tb_Tai_Khoan set Ten_Kh=N' " + tenkh.Text + "' , Dia_chi=N' " + diachi.Text + "',Ma_So_Thue='" + masothue.Text + "',Tiem_Nang='" + tiemnang.Text + "' where Ma_Kh = '" + lblMa.Text + "'";
+        string strUpdate = "update tb_Khach_Hang set Ten_Kh=N' " + tenkh.Text + "' , Dia_chi=N' " + diachi.Text + "',Ma_So_Thue='" + masothue.Text + "',Tiem_Nang='" + tiemnang.Text + "' where Ma_Kh = '" + lblMa.Text + "'";
         SqlCommand cmd = new SqlCommand(strUpdate, conn);
         cmd.CommandType = CommandType.Text;
         cmd.ExecuteNonQuery();
