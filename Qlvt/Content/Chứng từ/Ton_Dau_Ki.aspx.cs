@@ -16,6 +16,7 @@ public partial class Content_Chứng_từ_Ton_Dau_Ki : System.Web.UI.Page
         if(!IsPostBack)
         {
             FillGrid();
+            Calendar1.Visible = false;
         }
        
 
@@ -136,6 +137,32 @@ public partial class Content_Chứng_từ_Ton_Dau_Ki : System.Web.UI.Page
     }
     protected void ddl3_SelectedIndexChanged(object sender, EventArgs e)
     {
+
+    }
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+        if (Calendar1.Visible)
+        {
+        Calendar1.Visible = false;
+        }
+        else
+        {
+        Calendar1.Visible=true;
+        }
+    }
+   
+    protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+    {
+        txtNgay.Text = Calendar1.SelectedDate.ToString("d");
+        Calendar1.Visible = false;
+    }
+    protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
+    {
+       if (e.Day.IsOtherMonth||e.Day.IsWeekend)
+           {
+               e.Day.IsSelectable = false;
+               e.Cell.BackColor = System.Drawing.Color.Red;
+           }
 
     }
 }

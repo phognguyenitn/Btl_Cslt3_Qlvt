@@ -36,6 +36,7 @@
     </script>  
 
 
+   
 
 
      <div id="danhmuckho_content"> 
@@ -43,7 +44,7 @@
              <img src="../../Image/create_icon.gif" />
                  </div>   
         <div id="block_inserttondauki">           
-            <div  id="close_kho" class="title_themkho" style="cursor: pointer;width:660px">
+            <div  id="close_kho" class="title_themkho" style="cursor: pointer;width:650px">
                 <div style="float: left;margin-left: 5px;">
                     <img src="../../Image/data_icon_tittle.gif" />  </div>             
                 <div style="float: left;margin-left: 5px;" >Thêm </div>
@@ -55,7 +56,15 @@
              
                 <div class="content_themtondauki_item1" >Ngày</div>
                 <div class="content_themtondauki_item1" ><asp:TextBox runat="server" ID="txtNgay"></asp:TextBox></div>
-                <div class="content_themtondauki_item1"> <asp:Image ID="Image1" runat="server" />  </div>
+                <div class="content_themtondauki_item1"> 
+                    
+
+
+                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Image/Drop_icon.gif" OnClick="ImageButton1_Click" style="width: 15px" />
+                    
+
+
+                </div>
               <div class="content_themtondauki_item1"  >Mã hàng</div>
                  <div class="content_themtondauki_item1"style="width:150px">
                      <asp:DropDownList ID="ddlMaHang" style="width:150px" runat="server" OnSelectedIndexChanged="ddl2_SelectedIndexChanged">
@@ -66,28 +75,36 @@
                      <asp:DropDownList ID="ddlMaKho" style="width:150px" runat="server" OnSelectedIndexChanged="ddl3_SelectedIndexChanged">
                      </asp:DropDownList>
                 </div>
+                <div style="position:absolute;top: 80px;">
+                    <asp:Calendar ID="Calendar1" runat="server" BackColor="#FFFFCC" BorderColor="#FFCC66" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#663399" Height="200px" ShowGridLines="True" Width="220px" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged">
+                        <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
+                        <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
+                        <OtherMonthDayStyle ForeColor="#CC9966" />
+                        <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
+                        <SelectorStyle BackColor="#FFCC66" />
+                        <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt" ForeColor="#FFFFCC" />
+                        <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
+                    </asp:Calendar>
+
+                 </div>
+               
+
+
               <div class="content_themtondauki_item3" style="margin-top: 20px;clear:both">Số lượng</div>
                 <div class="content_themtondauki_item3" style="margin-top: 20px;margin-left: 36px;"><asp:TextBox ClientIDMode="Static" runat="server" ID="txtSo_Luong"></asp:TextBox></div>
                 <div class="content_themtondauki_item3" style="margin-top: 20px">Thành tiền</div>
                 <div class="content_themtondauki_item3" style="margin-top: 20px;margin-left: 40px;"><asp:TextBox ClientIDMode="Static" runat="server" ID="txtThanh_Tien"></asp:TextBox></div>
-
-             
-                
-
-             
-            </div>
-            <div class="button_themkho" style="padding-bottom: 3px;width:660px" >
+        
+            
+        </div>
+            <div class="button_themkho" style="padding-bottom: 3px;width:650px;margin-top:0px" >
                 <div class="button_themkho_item" style="margin-left: 225px;cursor: pointer"><asp:Button runat="server" Text="Save" ID="Button1"  Width="60px" OnClick="Button1_Click" /></div>              
                <div class="button_themkho_item"  style="margin-left: 15px;cursor: pointer" id="cancel_btn">Clear</div>
             </div>
-        </div>
 
+    </div>
 
-
-
-
-
-    <asp:GridView ID="grvTonDauKi" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnRowCancelingEdit="grvTonDauKi_RowCancelingEdit" OnRowDataBound="grvTonDauKi_RowDataBound" OnRowDeleting="grvTonDauKi_RowDeleting" OnRowEditing="grvTonDauKi_RowEditing" Width="48%" OnPageIndexChanging="grvTonDauKi_PageIndexChanging" OnSelectedIndexChanged="grvTonDauKi_SelectedIndexChanged" PageSize="6">
+ <asp:GridView ID="grvTonDauKi" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnRowCancelingEdit="grvTonDauKi_RowCancelingEdit" OnRowDataBound="grvTonDauKi_RowDataBound" OnRowDeleting="grvTonDauKi_RowDeleting" OnRowEditing="grvTonDauKi_RowEditing" Width="48%" OnPageIndexChanging="grvTonDauKi_PageIndexChanging" OnSelectedIndexChanged="grvTonDauKi_SelectedIndexChanged" PageSize="6">
         <Columns>
             <asp:TemplateField HeaderText="Ngày">
                 <ItemTemplate>
@@ -152,7 +169,13 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#00547E" />
     </asp:GridView>
-           </div>
+
+
+
+
+
     
+           
+    </div>
 </asp:Content>
 
