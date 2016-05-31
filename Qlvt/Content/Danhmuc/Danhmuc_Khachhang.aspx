@@ -53,7 +53,7 @@
             <div  id="close_kho" class="title_themkho" style="cursor: pointer;width:594px">
                 <div style="float: left;margin-left: 5px;">
                     <img src="../../Image/data_icon_tittle.gif" />  </div>             
-                <div style="float: left;margin-left: 5px;" >Thêm tồn đầu kì</div>
+                <div style="float: left;margin-left: 5px;" >Thêm khách hàng</div>
                 <div style="float: right;margin-left: 5px;cursor: pointer">
                     <img src="../../Image/Close_icon.png" />
                 </div>

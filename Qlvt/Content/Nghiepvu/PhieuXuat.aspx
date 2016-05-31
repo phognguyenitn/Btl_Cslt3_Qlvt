@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_Home.master" AutoEventWireup="true" CodeFile="PhieuNhap.aspx.cs" Inherits="Content_Nghiepvu_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_Home.master" AutoEventWireup="true" CodeFile="PhieuXuat.aspx.cs" Inherits="Content_Nghiepvu_PhieuXuat" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     
      <script>
          $(document).ready(function () {
@@ -33,12 +34,14 @@
                 margin-left: 6px;
             }
         </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <%--Tittle--%>
+
+     <%--Tittle--%>
     <div class="danhmuckho_tittle">
         <div>Phiếu nhập kho</div>
-            <div style="font-size: 12px;">Cập nhập, xem phiếu nhập kho</div>
+            <div style="font-size: 12px;">Cập nhập, xem phiếu nhập xuất</div>
     </div>   
 <%--Content--%>      
 <div id="danhmuckho_content">
@@ -49,7 +52,7 @@
             <div  id="close_kho" class="title_themkho" style="cursor: pointer;width:600px">
                 <div style="float: left;margin-left: 5px;">
                     <img src="../../Image/data_icon_tittle.gif" /></div>             
-                <div style="float: left;margin-left: 5px;" >Phiếu nhập kho</div>
+                <div style="float: left;margin-left: 5px;" >Phiếu xuất kho</div>
                 <div style="float: right;margin-left: 5px;cursor: pointer">
                     <img src="../../Image/Close_icon.png" />
                 </div>
@@ -86,16 +89,22 @@
                 </div>
                 <div style="clear: both;margin-top: 103px">
                     <div class="content_phieunhap_item3"><asp:Label ID="Label5" runat="server" Text="Kho"></asp:Label></div>
-                   <div class="content_phieunhap_item3" style="    margin-left: 56px;"> <asp:DropDownList ID="ddlMakho" runat="server" ></asp:DropDownList></div> 
-                     </div>
+                   
+                    <div class="content_phieunhap_item3" style="margin-left: 56px;"> <asp:DropDownList ID="ddlMakho" runat="server" ></asp:DropDownList></div> 
+
+                    <div class="content_phieunhap_item3">    <asp:Label ID="Label6" runat="server" Text="Bộ phận"></asp:Label></div>
+
+                    <div class="content_phieunhap_item3"> <asp:DropDownList ID="ddlBophan" runat="server"></asp:DropDownList> </div>
+                </div>
+
+  
                 <div style="clear: both;    margin-top: 137px;">
-                
-              
+
                     <div class="content_phieunhap_item4">Insert Detail</div>
                     <div class="content_phieunhap_item4"><asp:TextBox runat="server" ID="txtNoOfRecord"></asp:TextBox></div>
                      <div class="content_phieunhap_item4"><asp:Button runat="server" Text="Addrow" ID="btnAdd" OnClick="btnAdd_Click"></asp:Button></div>
                 </div>
-                <div><asp:GridView ID="dgv_phieunhap" runat="server" AutoGenerateColumns="False" ShowFooter="True" CellPadding="5" OnRowDataBound="dgv_phieunhap_RowDataBound" CssClass="auto-style2" Width="410px" AllowPaging="True" PageSize="2" OnPageIndexChanging="dgv_phieunhap_PageIndexChanging1" OnSelectedIndexChanged="dgv_phieunhap_SelectedIndexChanged" >
+                <div><asp:GridView ID="dgv_phieuxuat" runat="server" AutoGenerateColumns="False" ShowFooter="True" CellPadding="5" OnRowDataBound="dgv_phieuxuat_RowDataBound" CssClass="auto-style2" Width="410px" AllowPaging="True" PageSize="2" OnPageIndexChanging="dgv_phieuxuat_PageIndexChanging1" OnSelectedIndexChanging="dgv_phieuxuat_SelectedIndexChanging" >
                     <Columns>
                           <asp:TemplateField HeaderText="Số tt">
                               <ItemTemplate>
@@ -134,5 +143,7 @@
 
     </div>
   </div>
+
+
 </asp:Content>
 

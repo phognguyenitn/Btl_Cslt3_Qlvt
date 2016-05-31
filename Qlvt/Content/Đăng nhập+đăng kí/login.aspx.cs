@@ -12,6 +12,7 @@ public partial class Content_Dangnhap_login : System.Web.UI.Page
 {
 
      SqlConnection con = new SqlConnection("Data Source=(local);Initial Catalog=VATTU_DB;Integrated Security=True");
+   
     protected void Page_Load(object sender, EventArgs e)
     {
 

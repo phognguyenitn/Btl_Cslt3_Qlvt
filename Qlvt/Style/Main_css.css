@@ -110,11 +110,10 @@ width: 332px;
     position: absolute;
     left: 630px;
     top: 147px;
-    display: none;
+    display: block;
     width: 567px;
 }
 .danhmuckho_tittle {
-    width: 100%;
     background-color: #D1EEEE;
     padding: 3px;
 }
@@ -167,7 +166,7 @@ width: 332px;
     position: absolute;
     left: 630px;
     top: 147px;
-    display: none;
+    display: block;
     width: 594px;
 
 }
@@ -201,7 +200,7 @@ width: 332px;
     position: absolute;
     left: 630px;
     top: 147px;
-    display: none;
+    display: block;
     width: 650px;
     height:400px;
   
@@ -262,8 +261,10 @@ width: 332px;
 }
 .button_themkho {
     position: absolute;
-    bottom: 2px;
+    bottom: -6px;
 }
+/*Thêm phiếu xuất*/
+
 
 /*giao dien hang hoa*/
 #content_main_hang {

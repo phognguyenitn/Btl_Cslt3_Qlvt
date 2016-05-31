@@ -5,10 +5,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="search_Hang">
+        <asp:TextBox ID="txtTimKiem" runat="server" Width="408px"></asp:TextBox>
+        <asp:ImageButton ID="imgSearch" runat="server" Width="17px" OnClick="imgSearch_Click" />
+
         
     </div>
     <div id="content_main_hang">
-        <asp:Repeater runat="server" ID="rpt_Hanghoa">
+        <asp:Repeater runat="server" ID="rpt_Hanghoa" OnLoad="Page_Load">
           
             <ItemTemplate>
             <div class="content_hanghoa">   

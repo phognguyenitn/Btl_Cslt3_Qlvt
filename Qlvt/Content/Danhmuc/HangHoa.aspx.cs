@@ -9,10 +9,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
+
+
 public partial class Content_Danhmuc_HangHoa : System.Web.UI.Page
 {
     private int PageSize = 6;
-    string strconn = "Data Source=PHONG-PC;Initial Catalog=VATTU_DB;Integrated Security=True";
+    string strconn = "Data Source=(local);Initial Catalog=VATTU_DB;Integrated Security=True";
+    SqlConnection conn = new SqlConnection("Data Source=(local);Initial Catalog=VATTU_DB;Integrated Security=True;MultipleActiveResultSets=True");
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Getdata(1);
@@ -64,5 +69,17 @@ public partial class Content_Danhmuc_HangHoa : System.Web.UI.Page
     {
         int pageIndex = int.Parse((sender as LinkButton).CommandArgument);
         this.Getdata(pageIndex);
+    }
+    protected void imgSearch_Click(object sender, ImageClickEventArgs e)
+    {
+        conn.Open();
+
+        string strSelect = "select * from tb_Hang_Hoa where Ten_Hang='" + txtTimKiem.Text + "'";
+        SqlDataAdapter da = new SqlDataAdapter(strSelect, conn);
+        DataTable dt = new DataTable();
+        da.Fill(dt);
+        
+        
+
     }
 }
