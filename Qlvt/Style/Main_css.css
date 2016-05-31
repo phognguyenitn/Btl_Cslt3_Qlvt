@@ -231,7 +231,7 @@ width: 332px;
      position: absolute;
     left: 450px;
     top: 147px;
-    display: none;
+    display: block;
 }
 .content_phieunhap {
     width: 600px;
