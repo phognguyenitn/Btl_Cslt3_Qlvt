@@ -9,52 +9,58 @@ using System.Data;
 
 public partial class Content_Dangnhap_dangki_Dangnhap : System.Web.UI.Page
 {
-    
+
+    SqlConnection myConnection = new SqlConnection("Data Source=(local);Initial Catalog=VATTU_DB;Integrated Security=True;MultipleActiveResultSets=True");
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
     }
-    private bool CheckLogin(string sUsername, string sPassword)
-        {
-            
-            String connStr;
-            String strSQL;
-            SqlConnection myConnection;
-            SqlDataAdapter myAdapter;
+    private int CheckLogin(string sUsername, string sPassword)
+    {
 
-            DataTable myTable = new DataTable();
+        //Mở kết nối
+        string strSqlAdmin;
+        string strSqlUser;
+        SqlDataAdapter myAdapter1;
+        SqlDataAdapter myAdapter2;
+        DataTable myTable1 = new DataTable();
+        DataTable myTable2 = new DataTable();
 
-            //Mở kết nối
-            connStr="Data Source=ANDONGNHI;Initial Catalog=VATTU_DB;Integrated Security=True";
-            myConnection = new SqlConnection(connStr);
-            myConnection.Open();
 
-            //Câu lệnh SQL
-            strSQL = "Select * From tb_User Where Username = '" + sUsername + "' And UserPassword = '" + sPassword + "'";
+        //Câu lệnh SQL
+        strSqlAdmin = "Select * From tb_User Where Username = '" + sUsername + "' And UserPassword = '" + sPassword + "' and  UserRole = 1";
+        strSqlUser = "Select * From tb_User Where Username = '" + sUsername + "' And UserPassword = '" + sPassword + "' and  UserRole = 0";
+        //Lấy Dữ liệu         
+        myAdapter1 = new SqlDataAdapter(strSqlAdmin, myConnection);
+        myAdapter1.Fill(myTable1);
+        myAdapter2 = new SqlDataAdapter(strSqlUser, myConnection);
+        myAdapter2.Fill(myTable2);
 
-            //Lấy Dữ liệu         
-            myAdapter = new SqlDataAdapter(strSQL, connStr);
-            myAdapter.Fill(myTable);
-            myConnection.Close();
+        if (myTable1.Rows.Count > 0) return 1;
+        if (myTable2.Rows.Count > 0) return 2;
+        else return 0;
 
-            if (myTable.Rows.Count > 0) return true;
-            else return false;
-        }
+    }
     protected void Button1_Click(object sender, EventArgs e)
     {
-       if (CheckLogin(t1.Text.Trim(), t2.Text.Trim()))
-            {
-                Session.Contents["TrangThai"] = "IsLogin";
-                Response.Redirect("http://localhost:2051/Content/Home/Home.aspx");
-            }
-            else
-            {
-                Response.Write("<SCRIPT LANGUAGE=\"JavaScript\">alert(\"Tên đăng nhập hoặc mật khẩu không đúng\")</SCRIPT>");
-                t1.Text = string.Empty;
-                t2.Text = string.Empty;
-                t1.Focus();
-       
-             }
+        if (CheckLogin(t1.Text.Trim(), t2.Text.Trim()) == 1)
+        {
+
+            Response.Redirect("http://localhost:2051/Content/%C4%90%C4%83ng%20nh%E1%BA%ADp+%C4%91%C4%83ng%20k%C3%AD/HomeAd.aspx");
+        }
+        if (CheckLogin(t1.Text.Trim(), t2.Text.Trim()) == 2)
+        {
+            Response.Redirect("http://localhost:2051/Content/%C4%90%C4%83ng%20nh%E1%BA%ADp+%C4%91%C4%83ng%20k%C3%AD/HomeUser.aspx");
+        }
+
+        else
+        {
+            Response.Write("<SCRIPT LANGUAGE=\"JavaScript\">alert(\"Tên đăng nhập hoặc mật khẩu không đúng\")</SCRIPT>");
+            t1.Text = string.Empty;
+            t2.Text = string.Empty;
+            t1.Focus();
+
+        }
     }
 }
         

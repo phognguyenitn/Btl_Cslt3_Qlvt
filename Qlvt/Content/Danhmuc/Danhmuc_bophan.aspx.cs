@@ -118,9 +118,12 @@ public partial class Content_Danhmuc_Danhmuc_bophan : System.Web.UI.Page
             conn.Close();
             grvdmbf.EditIndex = -1;
             FillGrid();
+            lblError.Text = "";
         }
         else
-            lblError.Text = "Đã tồn tại ID";
+        {
+            lblError.Text = "Đã tồn tại Mã bộ phận";
+        }
 
 
 

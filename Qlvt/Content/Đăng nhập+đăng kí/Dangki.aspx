@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="login.aspx.cs" Inherits="Content_Dangnhap_login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Dangki.aspx.cs" Inherits="Content_Dangnhap_login" %>
 
 <!DOCTYPE html>
 

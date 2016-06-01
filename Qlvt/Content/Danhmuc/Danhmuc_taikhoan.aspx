@@ -45,7 +45,7 @@
                  </div>   
         <div id="block_insertkho">           
             <div  id="close_kho" class="title_themkho" style="cursor: pointer">
-                <div style="float: left;margin-left: 5px;">
+                <div style="float: left;margin-left: 5px; ">
                     <img src="../../Image/data_icon_tittle.gif" />  </div>             
                 <div style="float: left;margin-left: 5px;" >Thêm tài khoản</div>
                 <div style="float: right;margin-left: 5px;cursor: pointer">

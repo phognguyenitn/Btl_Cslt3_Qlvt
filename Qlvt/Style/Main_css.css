@@ -111,20 +111,20 @@ width: 332px;
     left: 630px;
     top: 147px;
     display: block;
-    width: 567px;
+    width: 600px;
 }
 .danhmuckho_tittle {
     background-color: #D1EEEE;
     padding: 3px;
 }
 .title_themkho {
-      width: 500px;
+      width: 545px;
     height: 19px;
     background: #FFFFE0;
 }
 .content_themkho {
       
-   width: 500px;
+   width: 545px;
     height: 50px;
     padding-top: 16px;
     background-color: #ffffff;
@@ -135,7 +135,7 @@ width: 332px;
 }
 
 .button_themkho {
-      width: 500px;
+      width: 545px;
        float: left;
     background-color: #ffffff;
     
@@ -146,7 +146,7 @@ width: 332px;
 }
 /*Thêm bộ phân*/
 .content_thembophan {
-       width: 500px;
+       width: 545px;
     height: 120px;
     padding-top: 16px;
     background-color: #ffffff;
@@ -201,13 +201,13 @@ width: 332px;
     left: 630px;
     top: 147px;
     display: block;
-    width: 650px;
-    height:400px;
+    width: 700px;
+    height:170px;
   
 
 }
 .content_themtondauki{
-     width: 650px;
+     width: 700px;
     height: 105px;
     padding-top: 30px;
     background-color: #ffffff;

@@ -130,6 +130,7 @@ public partial class Content_Danhmuc_Danhmuckho : System.Web.UI.Page
             cmd.ExecuteNonQuery();
             conn.Close();
             FillGrid();
+            lblError.Text = "";
         }
         else
         {

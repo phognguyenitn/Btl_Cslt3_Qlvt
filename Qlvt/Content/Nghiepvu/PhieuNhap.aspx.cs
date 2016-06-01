@@ -14,6 +14,18 @@ public partial class Content_Nghiepvu_Default : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            
+            FillGrid();
+
+        }
+
+
+
+    }
+    void FillGrid()
+    {
+        try
+        {
             conn.Open();
             //Load ddl Bo phan        
             //SqlCommand cmdBophan = new SqlCommand("select  * from tb_Bophan", conn);
@@ -51,12 +63,35 @@ public partial class Content_Nghiepvu_Default : System.Web.UI.Page
             ddlTkno.DataTextField = "Ma_Tk";
             ddlTkno.DataValueField = "Ma_Tk";
             ddlTkno.DataBind();
-   
 
-            cldDate.Visible = false;
+
+            string strSelect = "select * from tb_Phieu_Nhap join tb_CT_Phieu_Nhap on tb_Phieu_Nhap.So=tb_CT_Phieu_Nhap.So";
+            SqlDataAdapter da= new SqlDataAdapter (strSelect,conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            grvPnk.DataSource = dt;
+            grvPnk.DataBind();
             conn.Close();
+            cldDate.Visible = false;
+
+        }
+        catch(Exception)
+        {
+
         }
     }
+     void fillgrid2()
+    {
+       
+        string strSelect = "select * from tb_Phieu_Nhap join tb_CT_Phieu_Nhap on tb_Phieu_Nhap.So=tb_CT_Phieu_Nhap.So";
+        SqlDataAdapter da = new SqlDataAdapter(strSelect, conn);
+        DataTable dt = new DataTable();
+        da.Fill(dt);
+        grvPnk.DataSource = dt;
+        grvPnk.DataBind();
+        conn.Close();
+    }
+   
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         addRowsToGrid();
@@ -134,28 +169,46 @@ public partial class Content_Nghiepvu_Default : System.Web.UI.Page
         TextBox txtDonGia = null;
         int thanhtien = 0;
 
-        string insertStrpn = "insert into tb_Phieu_Nhap(So,ngay,Tk_no,Tk_Co,Ma_Kh,Ma_Kho,Dien_Giai) values ('" + txtSo_insert.Text + "','" + txtDate.Text + "','" + ddlTkno.SelectedItem.Value + "','" + ddlTkco.SelectedItem.Value + "','" + ddlKhachhang.SelectedItem.Value.Trim() + "','" + ddlMakho.SelectedItem.Value.Trim() + "','"+txtDiengiai.Text+"')";
-        foreach (GridViewRow row in dgv_phieunhap.Rows)
+        string strSelect = "select * from tb_Phieu_Nhap where So='"+txtSo_insert.Text+"'";
+        SqlDataAdapter da = new SqlDataAdapter(strSelect, conn);
+        DataTable dt=new DataTable();
+        da.Fill(dt);
+        if (dt.Rows.Count == 0)
         {
 
-            ddlMaHang = (DropDownList)row.FindControl("ddlMahang");
-            txtSoLuong = (TextBox)row.FindControl("txtSoluong");
-            txtDonGia = (TextBox)row.FindControl("txtDongia");
-            thanhtien = int.Parse(txtSoLuong.Text)*int.Parse(txtDonGia.Text);
-            SqlCommand cmdinsert1 = new SqlCommand();
-            cmdinsert1.Connection = conn;
-            cmdinsert1.CommandText = "insert_ctpn";
-            cmdinsert1.CommandType = CommandType.StoredProcedure;
-            cmdinsert1.Parameters.AddWithValue("@so", txtSo_insert.Text);
-            cmdinsert1.Parameters.AddWithValue("@ma_hang", ddlMaHang.SelectedItem.Value);
-            cmdinsert1.Parameters.AddWithValue("@soluong", int.Parse(txtSoLuong.Text));
-            cmdinsert1.Parameters.AddWithValue("@dongia", int.Parse(txtDonGia.Text));
-            cmdinsert1.Parameters.AddWithValue("@thanh_tien", thanhtien);
-            cmdinsert1.ExecuteNonQuery();
-        }  
-        SqlCommand cmdinsert0 = new SqlCommand(insertStrpn,conn);
-        cmdinsert0.CommandType = CommandType.Text;
-        cmdinsert0.ExecuteNonQuery();    
+
+            string insertStrpn = "insert into tb_Phieu_Nhap(So,ngay,Tk_no,Tk_Co,Ma_Kh,Ma_Kho,Dien_Giai) values ('" + txtSo_insert.Text + "','" + txtDate.Text + "','" + ddlTkno.SelectedItem.Value + "','" + ddlTkco.SelectedItem.Value + "','" + ddlKhachhang.SelectedItem.Value.Trim() + "','" + ddlMakho.SelectedItem.Value.Trim() + "','" + txtDiengiai.Text + "')";
+
+            foreach (GridViewRow row in dgv_phieunhap.Rows)
+            {
+
+                ddlMaHang = (DropDownList)row.FindControl("ddlMahang");
+                txtSoLuong = (TextBox)row.FindControl("txtSoluong");
+                txtDonGia = (TextBox)row.FindControl("txtDongia");
+                thanhtien = int.Parse(txtSoLuong.Text) * int.Parse(txtDonGia.Text);
+                SqlCommand cmdinsert1 = new SqlCommand();
+                cmdinsert1.Connection = conn;
+                cmdinsert1.CommandText = "insert_ctpn";
+                cmdinsert1.CommandType = CommandType.StoredProcedure;
+                cmdinsert1.Parameters.AddWithValue("@so", txtSo_insert.Text);
+                cmdinsert1.Parameters.AddWithValue("@ma_hang", ddlMaHang.SelectedItem.Value);
+                cmdinsert1.Parameters.AddWithValue("@soluong", int.Parse(txtSoLuong.Text));
+                cmdinsert1.Parameters.AddWithValue("@dongia", int.Parse(txtDonGia.Text));
+                cmdinsert1.Parameters.AddWithValue("@thanh_tien", thanhtien);
+                cmdinsert1.ExecuteNonQuery();
+            }
+            SqlCommand cmdinsert0 = new SqlCommand(insertStrpn, conn);
+            cmdinsert0.CommandType = CommandType.Text;
+            cmdinsert0.ExecuteNonQuery();
+            fillgrid2();
+            lblError.Text="";
+        }
+        else
+        {
+            lblError.Text = "Đã tồn tại ID";
+        }
+        
+        
 
     }
 
@@ -170,6 +223,14 @@ public partial class Content_Nghiepvu_Default : System.Web.UI.Page
     }
 
     protected void txtDate_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void grvPnk_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void grvPnk_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
 
     }

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 public partial class Content_Nghiepvu_PhieuXuat : System.Web.UI.Page
 {
@@ -16,10 +17,22 @@ public partial class Content_Nghiepvu_PhieuXuat : System.Web.UI.Page
 
         if (!IsPostBack)
         {
+            FillGrid();
+           
+            
+        }
+       
+       
+    }
+    void FillGrid()
+    {
+        try
+        {
+
             conn.Open();
             //Load ddl Bo phan        
             SqlCommand cmdBophan = new SqlCommand("select  * from tb_Bophan", conn);
-            SqlDataReader dr1 =cmdBophan.ExecuteReader();
+            SqlDataReader dr1 = cmdBophan.ExecuteReader();
             ddlBophan.DataSource = dr1;
             ddlBophan.DataTextField = "Ten_Bophan";
             ddlBophan.DataValueField = "Ma_Bophan";
@@ -53,11 +66,33 @@ public partial class Content_Nghiepvu_PhieuXuat : System.Web.UI.Page
             ddlTkno.DataTextField = "Ma_Tk";
             ddlTkno.DataValueField = "Ma_Tk";
             ddlTkno.DataBind();
-
-
             cldDate.Visible = false;
+
+
+            string strSelect = "Select *from tb_Phieu_Xuat join tb_CT_Phieu_Xuat on tb_Phieu_Xuat.So=tb_CT_Phieu_Xuat.So ";
+
+            SqlDataAdapter da = new SqlDataAdapter(strSelect, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            grvPxk.DataSource = dt;
+            grvPxk.DataBind();
             conn.Close();
+            
         }
+        catch (Exception)
+        {
+        }
+    }
+    void FillGrid2()
+    {
+            string strSelect = "Select *from tb_Phieu_Xuat join tb_CT_Phieu_Xuat on tb_Phieu_Xuat.So=tb_CT_Phieu_Xuat.So ";
+
+            SqlDataAdapter da = new SqlDataAdapter(strSelect, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            grvPxk.DataSource = dt;
+            grvPxk.DataBind();
+            conn.Close();
     }
     protected void btnAdd_Click(object sender, EventArgs e)
     {
@@ -142,8 +177,10 @@ public partial class Content_Nghiepvu_PhieuXuat : System.Web.UI.Page
             thanhtien = int.Parse(txtSoLuong.Text) * int.Parse(txtDonGia.Text);
             SqlCommand cmdinsert1 = new SqlCommand();
             cmdinsert1.Connection = conn;
-            cmdinsert1.CommandText = "insert_ctpn";
+            cmdinsert1.CommandText = "insert_ctpx";
             cmdinsert1.CommandType = CommandType.StoredProcedure;
+
+            //Đồng bộ biến trong thủ tục sql
             cmdinsert1.Parameters.AddWithValue("@so", txtSo_insert.Text);
             cmdinsert1.Parameters.AddWithValue("@ma_hang", ddlMaHang.SelectedItem.Value);
             cmdinsert1.Parameters.AddWithValue("@soluong", int.Parse(txtSoLuong.Text));
@@ -153,7 +190,8 @@ public partial class Content_Nghiepvu_PhieuXuat : System.Web.UI.Page
         }
         SqlCommand cmdinsert0 = new SqlCommand(insertStrpn, conn);
         cmdinsert0.CommandType = CommandType.Text;
-        cmdinsert0.ExecuteNonQuery();    
+        cmdinsert0.ExecuteNonQuery();
+        FillGrid2();
 
     }
  
@@ -168,5 +206,14 @@ public partial class Content_Nghiepvu_PhieuXuat : System.Web.UI.Page
     protected void txtDate_TextChanged(object sender, EventArgs e)
     {
 
+    }
+    protected void grvPxk_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void grvPxk_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        grvPxk.PageIndex = e.NewPageIndex;
+        FillGrid();
     }
 }

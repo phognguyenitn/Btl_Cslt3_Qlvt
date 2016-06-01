@@ -44,7 +44,7 @@
              <img src="../../Image/create_icon.gif" />
                  </div>   
         <div id="block_inserttondauki">           
-            <div  id="close_kho" class="title_themkho" style="cursor: pointer;width:650px">
+            <div  id="close_kho" class="title_themkho" style="cursor: pointer;width:700px">
                 <div style="float: left;margin-left: 5px;">
                     <img src="../../Image/data_icon_tittle.gif" />  </div>             
                 <div style="float: left;margin-left: 5px;" >Thêm </div>
@@ -75,7 +75,7 @@
                      <asp:DropDownList ID="ddlMaKho" style="width:150px" runat="server" OnSelectedIndexChanged="ddl3_SelectedIndexChanged">
                      </asp:DropDownList>
                 </div>
-                <div style="position:absolute;top: 80px;">
+                <div style="position:absolute;top: 80px;z-index: 1;">
                     <asp:Calendar ID="Calendar1" runat="server" BackColor="#FFFFCC" BorderColor="#FFCC66" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#663399" Height="200px" ShowGridLines="True" Width="220px" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged">
                         <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
                         <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
@@ -97,8 +97,8 @@
         
             
         </div>
-            <div class="button_themkho" style="padding-bottom: 3px;width:650px;margin-top:0px" >
-                <div class="button_themkho_item" style="margin-left: 225px;cursor: pointer"><asp:Button runat="server" Text="Save" ID="Button1"  Width="60px" OnClick="Button1_Click" /></div>              
+            <div class="button_themkho" style="padding-bottom: 3px;width:700px;margin-top:0px" >
+                <div class="button_themkho_item" style="margin-left: 280px;cursor: pointer"><asp:Button runat="server" Text="Save" ID="Button1"  Width="60px" OnClick="Button1_Click" /></div>              
                <div class="button_themkho_item"  style="margin-left: 15px;cursor: pointer" id="cancel_btn">Clear</div>
             </div>
 
@@ -110,7 +110,7 @@
                 <ItemTemplate>
                     <asp:Label ID="lblNgay" runat="server" Text='<%# Eval("Ngay") %>' Width="60px"></asp:Label>
                 </ItemTemplate>
-                <ItemStyle Width="10%" />
+                <ItemStyle Width="20%" />
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Mã hàng">
                 <EditItemTemplate>
@@ -119,7 +119,7 @@
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("Ma_Hang") %>'></asp:Label>
                 </ItemTemplate>
-                <ItemStyle Width="7%" />
+                <ItemStyle Width="13%" />
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Mã kho">
                 <EditItemTemplate>
@@ -128,7 +128,7 @@
                 <ItemTemplate>
                     <asp:Label ID="Label2" runat="server" Text='<%# Eval("Ma_Kho") %>'></asp:Label>
                 </ItemTemplate>
-                <ItemStyle Width="7%" />
+                <ItemStyle Width="13%" />
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Số lượng">
                 <EditItemTemplate>
@@ -137,7 +137,7 @@
                 <ItemTemplate>
                     <asp:Label ID="Label3" runat="server" Text='<%# Eval("So_Luong") %>'></asp:Label>
                 </ItemTemplate>
-                <ItemStyle Width="7%" />
+                <ItemStyle Width="13%" />
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Thành Tiền">
                 <EditItemTemplate>

@@ -5,13 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Content_Dangnhap_dangki_logout : System.Web.UI.Page
+public partial class MasterPageUser : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Session.Clear();
-        Response.Redirect("Dangnhap.aspx");
-
 
     }
 }

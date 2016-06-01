@@ -74,11 +74,12 @@ public partial class Content_Danhmuc_HangHoa : System.Web.UI.Page
     {
         conn.Open();
 
-        string strSelect = "select * from tb_Hang_Hoa where Ten_Hang='" + txtTimKiem.Text + "'";
+        string strSelect = "select * from tb_Hang_Hoa where Ten_Hang like N'" + txtTimKiem.Text.Trim() + "%'";
         SqlDataAdapter da = new SqlDataAdapter(strSelect, conn);
         DataTable dt = new DataTable();
         da.Fill(dt);
-        
+        rpt_Hanghoa.DataSource = dt;
+        rpt_Hanghoa.DataBind();
         
 
     }

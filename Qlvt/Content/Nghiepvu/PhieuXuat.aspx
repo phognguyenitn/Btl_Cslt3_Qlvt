@@ -40,7 +40,7 @@
 
      <%--Tittle--%>
     <div class="danhmuckho_tittle">
-        <div>Phiếu nhập kho</div>
+        <div>Phiếu xuất kho</div>
             <div style="font-size: 12px;">Cập nhập, xem phiếu nhập xuất</div>
     </div>   
 <%--Content--%>      
@@ -135,13 +135,64 @@
                     </asp:GridView></div>                
                 
            
-            <div class="button_themkho" style="padding-bottom: 3px;" >
+            <div class="button_themkho" style="padding-bottom: 3px;width:600px" >
                 <div class="auto-style1" style="margin-left: 155px;"><asp:Button runat="server" Text="Save" ID="BtnSave"  Width="60px" OnClick="BtnSave_Click"/></div>              
                <div class="button_themkho_item"  style="margin-left: 15px;cursor: pointer" id="cancel_btn">Clear</div>
             </div>
         </div>        
 
     </div>
+
+    <asp:GridView ID="grvPxk" runat="server" AllowPaging="True" AutoGenerateColumns="False" Width="40%" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnPageIndexChanging="grvPxk_PageIndexChanging" OnSelectedIndexChanged="grvPxk_SelectedIndexChanged" PageSize="5">
+        <Columns>
+            <asp:TemplateField HeaderText="Số">
+                <ItemTemplate>
+                    <asp:Label ID="Label7" runat="server" Text='<%# Eval("So") %>'></asp:Label>
+                </ItemTemplate>
+                <ItemStyle Width="5%" />
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Ngày">
+                <ItemTemplate>
+                    <asp:Label ID="Label8" runat="server" Text='<%# Eval("Ngay") %>'></asp:Label>
+                </ItemTemplate>
+                <ItemStyle Width="20%" />
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Mã KH">
+                <ItemTemplate>
+                    <asp:Label ID="Label12" runat="server" Text='<%# Eval("Ma_Kho") %>'></asp:Label>
+                </ItemTemplate>
+                <ItemStyle Width="13%" />
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Mã kho">
+                <ItemTemplate>
+                    <asp:Label ID="Label11" runat="server" Text='<%# Eval("Ma_Kh") %>'></asp:Label>
+                </ItemTemplate>
+                <ItemStyle Width="13%" />
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Mã hàng">
+                <ItemTemplate>
+                    <asp:Label ID="Label15" runat="server" Text='<%# Eval("Ma_Hang") %>'></asp:Label>
+                </ItemTemplate>
+                <ItemStyle Width="13%" />
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Tổng tiền">
+                <ItemTemplate>
+                    <asp:Label ID="Label16" runat="server" Text='<%# Eval("Thanh_Tien") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+        <FooterStyle BackColor="White" ForeColor="#000066" />
+        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+        <RowStyle ForeColor="#000066" />
+        <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+        <SortedAscendingHeaderStyle BackColor="#007DBB" />
+        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+        <SortedDescendingHeaderStyle BackColor="#00547E" />
+    </asp:GridView>
+
+
   </div>
 
 

@@ -119,9 +119,10 @@ public partial class Content_Danhmuc_Danhmuc_Khachhang : System.Web.UI.Page
             conn.Close();
             grvDmkh.EditIndex = -1;
             FillGrid();
+            lblError.Text = "";
         }
         else
-            lblError.Text = "Đã tồn tại ID";
+            lblError.Text = "Đã tồn tại Mã khách hàng";
     }
    
     protected void grvDmkh_RowEditing(object sender, GridViewEditEventArgs e)

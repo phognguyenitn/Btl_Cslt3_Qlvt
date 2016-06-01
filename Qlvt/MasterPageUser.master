@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage_Home.master.cs" Inherits="MasterPage_Home" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageUser.master.cs" Inherits="MasterPageUser" %>
 
 <!DOCTYPE html>
 
@@ -9,13 +9,11 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="Style/Main_css.css" rel="stylesheet" />
-
-  
-
 </head>
 <body>
-     <form id="form_content" runat="server">
-     <div class=" wrapper" >
+    <form id="form1" runat="server">
+
+        <div class=" wrapper" >
   
        
             <div id="banner">
@@ -37,7 +35,7 @@
                                    
                                 <%-- dropGroup--%>
                                   <div class=" menuBarGroup">
-                                    <a class="contextItem" href="http://localhost:2051/Content/%C4%90%C4%83ng%20nh%E1%BA%ADp+%C4%91%C4%83ng%20k%C3%AD/User.aspx"><div class="title">User</div></a>
+                                    
                                        
                                     <a  class="contextItem" href="http://localhost:2051/Content/%C4%90%C4%83ng%20nh%E1%BA%ADp+%C4%91%C4%83ng%20k%C3%AD/Dangnhap.aspx"><div class="title">Logout</div></a>                       
                                 
@@ -116,9 +114,13 @@
              
                
          </div>
-           
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-               </asp:ContentPlaceHolder>
+
+
+    
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+       
+            </asp:ContentPlaceHolder>
                   
                <div id="footer" style="font-size: 15px">
                    <div style="padding-top: 1px" class="footer_copyright"> <p> CopyRight &copy; 2016 KieuHanh<p></div>
@@ -128,11 +130,8 @@
                    <div  class="footer_phone" >01676148868</div> 
                </div>
      
-        </div>
-     
-           
-    
-      </form>  
-           
+
+    </div>
+    </form>
 </body>
 </html>

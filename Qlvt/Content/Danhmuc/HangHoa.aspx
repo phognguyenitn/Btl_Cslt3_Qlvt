@@ -5,8 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="search_Hang">
-        <asp:TextBox ID="txtTimKiem" runat="server" Width="408px"></asp:TextBox>
-        <asp:ImageButton ID="imgSearch" runat="server" Width="17px" OnClick="imgSearch_Click" />
+        <div style="width: 415px;  margin-top: 7px;float: left;"><asp:TextBox ID="txtTimKiem" runat="server" Width="408px"></asp:TextBox></div>
+        <div style="width:40px;float:left"><asp:ImageButton ID="imgSearch" runat="server" style="width:40px;float:left"  OnClick="imgSearch_Click" ImageUrl="~/Image/anh tim kiem.png" /></div>
 
         
     </div>

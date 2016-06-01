@@ -116,6 +116,7 @@ public partial class Content_Danhmuc_Danhmuc_taikhoan : System.Web.UI.Page
             conn.Close();
             grvDmtk.EditIndex = -1;
             FillGrid();
+            lblError.Text = "";
         }
         else
             lblError.Text = "Đã tồn tại ID";
